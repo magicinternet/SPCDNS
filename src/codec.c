@@ -635,7 +635,7 @@ static inline dns_rcode_t encode_edns0rr_nsid(
   if (data->packet.size < newlen + sizeof(uint16_t) + sizeof(uint16_t))
     return RCODE_NO_MEMORY;
     
-  char   buffer[newlen + 1];
+  char* buffer = calloc(sizeof(char), newlen + 1);
   size_t nidx;
   size_t i;
   
@@ -647,6 +647,7 @@ static inline dns_rcode_t encode_edns0rr_nsid(
   write_uint16(&data->packet,opt->code);
   write_uint16(&data->packet,newlen);
   memcpy(data->packet.ptr,buffer,newlen);
+  free(buffer);
   data->packet.ptr  += newlen;
   data->packet.size -= newlen;
   return RCODE_OKAY;
@@ -1676,7 +1677,7 @@ static dns_rcode_t dloc_double(
   if (len > data->parse.size - 1)
     return RCODE_FORMAT_ERROR;
     
-  char buffer[len + 1];
+  char* buffer = calloc(sizeof(char), len + 1);
   memcpy(buffer,&data->parse.ptr[1],len);
   buffer[len++] = '\0';
   
@@ -1685,6 +1686,7 @@ static dns_rcode_t dloc_double(
   
   errno = 0;
   *pvalue = strtod(buffer,NULL);
+  free(buffer);
   if (errno) return RCODE_FORMAT_ERROR;
   
   return RCODE_OKAY;
