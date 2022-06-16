@@ -52,8 +52,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 #if defined(_WIN32)
-#  include <winsock2.h>
-#  include <wspiapi.h>
+#include <winsock2.h>
+#include <windows.h>
+#include <iphlpapi.h>
+#include <WS2tcpip.h>
    typedef uint32_t in_addr_t;
 #else
 #   include <arpa/inet.h>
