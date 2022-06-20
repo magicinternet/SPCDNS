@@ -20,20 +20,10 @@ add_library(${PROJECT_NAME} SHARED
     ${${PROJECT_NAME}_SOURCE}
 )
 
-# target_compile_definitions(${PROJECT_NAME}
-#     PRIVATE
-#         _CRT_SECURE_NO_WARNINGS
-#         _UNICODE
-#         UNICODE
-#         NOMINMAX
-# )
-
-#TODO: pass from the outside
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 target_compile_options(${PROJECT_NAME}
     PRIVATE
         $<$<CXX_COMPILER_ID:MSVC>:
-            /MP /W3 /Zf> /Tc
+            /MP /W3 /Zf>
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -47,8 +37,3 @@ target_link_libraries(${PROJECT_NAME}
         iphlpapi
         Ntdll
 )
-
-# target_link_options(${PROJECT_NAME}
-#     PRIVATE
-#         "/ignore:4099" # warning LNK4099: PDB '.pdb' was not found ...
-# )
