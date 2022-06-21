@@ -72,7 +72,7 @@
 #endif
 
 #ifdef _MSC_VER
-#define WIN_DLL_EXPORT declspec(__declspec(dllexport))
+#   define WIN_DLL_EXPORT declspec(__declspec(dllexport))
 #endif
 
 /****************************************************************************

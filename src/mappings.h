@@ -40,6 +40,10 @@
 #  define __attribute__(x)
 #endif
 
+#ifdef _MSC_VER
+#  define WIN_DLL_EXPORT declspec(__declspec(dllexport))
+#endif
+
 struct int_string_map
 {
   int  const        value;
