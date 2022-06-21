@@ -52,8 +52,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 #if defined(_WIN32)
-#  include <winsock2.h>
-#  include <wspiapi.h>
+#include <winsock2.h>
+#include <windows.h>
+#include <iphlpapi.h>
+#include <WS2tcpip.h>
    typedef uint32_t in_addr_t;
 #else
 #   include <arpa/inet.h>
@@ -67,6 +69,10 @@
 
 #ifndef __GNUC__
 #  define __attribute__(x)
+#endif
+
+#ifdef _MSC_VER
+#   define WIN_DLL_EXPORT declspec(__declspec(dllexport))
 #endif
 
 /****************************************************************************
@@ -1012,8 +1018,8 @@ typedef struct dns_query_t      /* RFC-1035 */
 
 /**********************************************************************/
 
-extern dns_rcode_t dns_encode(dns_packet_t  *,size_t *,const dns_query_t *)         __attribute__ ((nothrow,nonnull));
-extern dns_rcode_t dns_decode(dns_decoded_t *,size_t *,const dns_packet_t *,size_t) __attribute__ ((nothrow,nonnull(1,2,3)));
+WIN_DLL_EXPORT extern dns_rcode_t dns_encode(dns_packet_t  *,size_t *,const dns_query_t *)         __attribute__ ((nothrow,nonnull));
+WIN_DLL_EXPORT extern dns_rcode_t dns_decode(dns_decoded_t *,size_t *,const dns_packet_t *,size_t) __attribute__ ((nothrow,nonnull(1,2,3)));
 
 #ifdef __cplusplus
    }
