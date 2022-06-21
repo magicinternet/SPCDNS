@@ -71,6 +71,10 @@
 #  define __attribute__(x)
 #endif
 
+#ifdef _MSC_VER
+#define WIN_DLL_EXPORT declspec(__declspec(dllexport))
+#endif
+
 /****************************************************************************
 * Buffers passed to these routines should be declared as one of these two
 * types with one of the given sizes below, depending upon what the buffer is
@@ -1014,8 +1018,8 @@ typedef struct dns_query_t      /* RFC-1035 */
 
 /**********************************************************************/
 
-extern dns_rcode_t dns_encode(dns_packet_t  *,size_t *,const dns_query_t *)         __attribute__ ((nothrow,nonnull));
-extern dns_rcode_t dns_decode(dns_decoded_t *,size_t *,const dns_packet_t *,size_t) __attribute__ ((nothrow,nonnull(1,2,3)));
+WIN_DLL_EXPORT extern dns_rcode_t dns_encode(dns_packet_t  *,size_t *,const dns_query_t *)         __attribute__ ((nothrow,nonnull));
+WIN_DLL_EXPORT extern dns_rcode_t dns_decode(dns_decoded_t *,size_t *,const dns_packet_t *,size_t) __attribute__ ((nothrow,nonnull(1,2,3)));
 
 #ifdef __cplusplus
    }

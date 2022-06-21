@@ -55,7 +55,7 @@ extern char const  *dns_class_text  (dns_class_t) __attribute__ ((pure,nothrow))
 extern char const  *dns_op_text     (dns_op_t)    __attribute__ ((pure,nothrow));
 
 extern dns_rcode_t  dns_rcode_value (char const *) __attribute__ ((pure,nothrow,nonnull));
-extern dns_type_t   dns_type_value  (char const *) __attribute__ ((pure,nothrow,nonnull));
+WIN_DLL_EXPORT extern dns_type_t   dns_type_value  (char const *) __attribute__ ((pure,nothrow,nonnull));
 extern dns_class_t  dns_class_value (char const *) __attribute__ ((pure,nothrow,nonnull));
 extern dns_op_t     dns_op_value    (char const *) __attribute__ ((pure,nothrow,nonnull));
 
