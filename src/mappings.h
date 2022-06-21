@@ -41,7 +41,7 @@
 #endif
 
 #ifdef _MSC_VER
-#  define WIN_DLL_EXPORT declspec(__declspec(dllexport))
+#  define WIN_DLL_EXPORT __declspec(dllexport)
 #endif
 
 struct int_string_map
