@@ -1,6 +1,10 @@
 project(SPCDNS LANGUAGES CXX)
 cmake_minimum_required(VERSION 3.13.0)
 
+if (NOT WIN32)
+    message(FATAL_ERROR "Unsupported platform")
+endif()
+
 include(Version.cmake)
 
 set(${PROJECT_NAME}_INCLUDE
