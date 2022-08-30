@@ -39,11 +39,11 @@
 #include <stdio.h>
 #include "dns.h"
 
-extern void dns_print_result   (dns_query_t *);
-extern void dns_print_header   (dns_query_t *);
-extern void dns_print_question (char const *,dns_question_t *,size_t);
-extern void dns_print_answer   (char const *,dns_answer_t   *,size_t);
-extern void dns_dump_memory    (FILE *,void const *,size_t,size_t);
+WIN_DLL_EXPORT extern void dns_print_result   (dns_query_t *);
+WIN_DLL_EXPORT extern void dns_print_header   (dns_query_t *);
+WIN_DLL_EXPORT extern void dns_print_question (char const *,dns_question_t *,size_t);
+WIN_DLL_EXPORT extern void dns_print_answer   (char const *,dns_answer_t   *,size_t);
+WIN_DLL_EXPORT extern void dns_dump_memory    (FILE *,void const *,size_t,size_t);
 
 #ifdef __cplusplus
   }

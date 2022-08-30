@@ -52,16 +52,16 @@ struct int_string_map
 
 extern struct int_string_map const c_dns_rcode_enum[];
 
-extern char const  *dns_rcode_enum  (dns_rcode_t) __attribute__ ((pure,nothrow));
-extern char const  *dns_rcode_text  (dns_rcode_t) __attribute__ ((pure,nothrow));
-extern char const  *dns_type_text   (dns_type_t)  __attribute__ ((pure,nothrow));
-extern char const  *dns_class_text  (dns_class_t) __attribute__ ((pure,nothrow));
-extern char const  *dns_op_text     (dns_op_t)    __attribute__ ((pure,nothrow));
+WIN_DLL_EXPORT extern char const  *dns_rcode_enum  (dns_rcode_t) __attribute__ ((pure,nothrow));
+WIN_DLL_EXPORT extern char const  *dns_rcode_text  (dns_rcode_t) __attribute__ ((pure,nothrow));
+WIN_DLL_EXPORT extern char const  *dns_type_text   (dns_type_t)  __attribute__ ((pure,nothrow));
+WIN_DLL_EXPORT extern char const  *dns_class_text  (dns_class_t) __attribute__ ((pure,nothrow));
+WIN_DLL_EXPORT extern char const  *dns_op_text     (dns_op_t)    __attribute__ ((pure,nothrow));
 
-extern dns_rcode_t  dns_rcode_value (char const *) __attribute__ ((pure,nothrow,nonnull));
+WIN_DLL_EXPORT extern dns_rcode_t  dns_rcode_value (char const *) __attribute__ ((pure,nothrow,nonnull));
 WIN_DLL_EXPORT extern dns_type_t   dns_type_value  (char const *) __attribute__ ((pure,nothrow,nonnull));
-extern dns_class_t  dns_class_value (char const *) __attribute__ ((pure,nothrow,nonnull));
-extern dns_op_t     dns_op_value    (char const *) __attribute__ ((pure,nothrow,nonnull));
+WIN_DLL_EXPORT extern dns_class_t  dns_class_value (char const *) __attribute__ ((pure,nothrow,nonnull));
+WIN_DLL_EXPORT extern dns_op_t     dns_op_value    (char const *) __attribute__ ((pure,nothrow,nonnull));
 
 #ifdef __cplusplus
   }
